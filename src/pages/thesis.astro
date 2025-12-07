@@ -59,7 +59,7 @@ import '../styles/thesis.css'
         <div class="problem-examples">
           <div class="problem-example">
             <h4>Researchers</h4>
-            <p>Spend 40% of their time on proposals instead of research. Copy-paste between Word docs.</p>
+            <p>Spend 34 working days per proposal on average<a href="#ref-6" class="cite">[6]</a>. 90%+ say it's too much time.</p>
           </div>
           <div class="problem-example">
             <h4>AI Tools</h4>
@@ -67,25 +67,20 @@ import '../styles/thesis.css'
           </div>
           <div class="problem-example">
             <h4>Compliance</h4>
-            <p>NSF has 200+ formatting rules. Manual review catches errors after hours of work.</p>
+            <p>NSF PAPPG has 80+ formatting rules<a href="#ref-7" class="cite">[7]</a>. Errors caught after submission waste weeks.</p>
           </div>
         </div>
         <div class="stat-callout">
           <span class="stat-number">$3B+</span>
           <span class="stat-context">
-            in NSF proposals submitted annually<span class="cite" data-id="1">[1]</span>
+            in NSF proposals submitted annually<a href="#ref-1" class="cite">[1]</a>
           </span>
         </div>
         <p>
-          The National Science Foundation receives over 40,000 proposals annually<span class="cite" data-id="1">[1]</span>,
+          The National Science Foundation receives over 40,000 proposals annually<a href="#ref-1" class="cite">[1]</a>,
           with an average request of ~$200K. Researchers spend weeks on each proposal, yet
-          <strong>76% are rejected</strong><span class="cite" data-id="2">[2]</span>.
+          <strong>76% are rejected</strong><a href="#ref-2" class="cite">[2]</a>.
         </p>
-        <blockquote>
-          "I use Claude for everything—code, papers, analysis. But for grants, I'm back to
-          copying text between Word docs and web portals."
-          <cite>— PI at major research university</cite>
-        </blockquote>
         <p>
           The problem isn't AI capability. It's infrastructure. AI tools work with local files
           and version control. Grant portals work with web forms and uploads.
@@ -212,12 +207,12 @@ import '../styles/thesis.css'
         <div class="market-cards">
           <div class="market-card">
             <h3>Research Grants</h3>
-            <div class="market-size">$90B+/year<span class="cite" data-id="3">[3]</span></div>
+            <div class="market-size">$90B+/year<a href="#ref-3" class="cite">[3]</a></div>
             <p>Federal research funding in the US alone. NSF, NIH, DOE, DOD each run billions in annual competitions.</p>
           </div>
           <div class="market-card">
             <h3>Grant Management Software</h3>
-            <div class="market-size">$2.8B → $5.6B<span class="cite" data-id="4">[4]</span></div>
+            <div class="market-size">$2.8B → $5.6B<a href="#ref-4" class="cite">[4]</a></div>
             <p>Growing 10%+ annually. Legacy vendors (Cayuse, InfoEd) charge $50K+/year for outdated tools.</p>
           </div>
           <div class="market-card">
@@ -227,7 +222,7 @@ import '../styles/thesis.css'
           </div>
           <div class="market-card">
             <h3>AI Writing Tools</h3>
-            <div class="market-size">$5B+ by 2027<span class="cite" data-id="5">[5]</span></div>
+            <div class="market-size">$5B+ by 2027<a href="#ref-5" class="cite">[5]</a></div>
             <p>Jasper, Copy.ai, and others for marketing. No dominant player for research/grant writing.</p>
           </div>
         </div>
@@ -645,6 +640,14 @@ import '../styles/thesis.css'
             MarketsandMarkets. <em>AI Writing Assistant Market</em> (2024).
             <a href="https://www.marketsandmarkets.com/" target="_blank" rel="noopener noreferrer">marketsandmarkets.com</a>
           </li>
+          <li id="ref-6">
+            Herbert et al. <em>On the time spent preparing grant proposals: an observational study of Australian researchers</em> (2013).
+            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3664356/" target="_blank" rel="noopener noreferrer">PMC</a>
+          </li>
+          <li id="ref-7">
+            NSF. <em>Proposal & Award Policies & Procedures Guide (PAPPG) Chapter II</em> (2024).
+            <a href="https://www.nsf.gov/policies/pappg/24-1/ch-2-proposal-preparation" target="_blank" rel="noopener noreferrer">nsf.gov</a>
+          </li>
         </ol>
       </div>
     </section>
@@ -693,12 +696,12 @@ import '../styles/thesis.css'
         });
       });
 
-      // Citation hover cards
+      // Smooth scroll for citation links
       document.querySelectorAll('.cite').forEach(cite => {
-        const id = cite.dataset.id;
-        cite.style.cursor = 'pointer';
-        cite.addEventListener('click', () => {
-          document.getElementById(`ref-${id}`)?.scrollIntoView({ behavior: 'smooth' });
+        cite.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = cite.getAttribute('href');
+          document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
         });
       });
     </script>
