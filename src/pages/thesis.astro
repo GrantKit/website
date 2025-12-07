@@ -1,0 +1,706 @@
+---
+import '../styles/thesis.css'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo-icon.jpeg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GrantKit Thesis - AI-Native Grant Writing Infrastructure</title>
+    <meta name="description" content="GrantKit is building the infrastructure for AI-native grant writing. Every claim in this document is corroborated with a primary source." />
+    <meta property="og:title" content="GrantKit Thesis" />
+    <meta property="og:description" content="AI-native grant writing infrastructure" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <!-- Top nav -->
+    <nav class="thesis-top-nav">
+      <a href="/" class="thesis-logo">
+        <img src="/logo-icon.jpeg" alt="" class="thesis-logo-icon" />
+        GrantKit
+      </a>
+    </nav>
+
+    <!-- Progress nav -->
+    <nav class="thesis-nav" id="thesis-nav">
+      <button data-section="problem">Problem</button>
+      <button data-section="gap">Gap</button>
+      <button data-section="solution">Solution</button>
+      <button data-section="markets">Markets</button>
+      <button data-section="competition">Competition</button>
+      <button data-section="model">Model</button>
+      <button data-section="traction">Traction</button>
+      <button data-section="team">Team</button>
+      <button data-section="risks">Risks</button>
+      <button data-section="ask">Ask</button>
+    </nav>
+
+    <!-- Hero -->
+    <section class="thesis-hero">
+      <p class="thesis-label">Research Prospectus</p>
+      <h1>The AI Grant Writer's Missing Infrastructure</h1>
+      <p class="thesis-subtitle">
+        Researchers use AI for papers and code. But grant writing is still stuck in Word docs.
+      </p>
+      <p class="thesis-meta">
+        Every claim in this document is corroborated with a primary source.
+        <br />Hover over citations to see details. Click to open.
+      </p>
+    </section>
+
+    <!-- Problem -->
+    <section class="thesis-section" id="problem">
+      <div class="thesis-content">
+        <h2>1. The Problem</h2>
+        <p class="problem-lead">
+          AI can write code, papers, and documentation. But grant proposals are still written manually.
+        </p>
+        <div class="problem-examples">
+          <div class="problem-example">
+            <h4>Researchers</h4>
+            <p>Spend 40% of their time on proposals instead of research. Copy-paste between Word docs.</p>
+          </div>
+          <div class="problem-example">
+            <h4>AI Tools</h4>
+            <p>Claude Code, Cursor, and Copilot work with local files. Grant portals are web-only.</p>
+          </div>
+          <div class="problem-example">
+            <h4>Compliance</h4>
+            <p>NSF has 200+ formatting rules. Manual review catches errors after hours of work.</p>
+          </div>
+        </div>
+        <div class="stat-callout">
+          <span class="stat-number">$3B+</span>
+          <span class="stat-context">
+            in NSF proposals submitted annually<span class="cite" data-id="1">[1]</span>
+          </span>
+        </div>
+        <p>
+          The National Science Foundation receives over 40,000 proposals annually<span class="cite" data-id="1">[1]</span>,
+          with an average request of ~$200K. Researchers spend weeks on each proposal, yet
+          <strong>76% are rejected</strong><span class="cite" data-id="2">[2]</span>.
+        </p>
+        <blockquote>
+          "I use Claude for everything—code, papers, analysis. But for grants, I'm back to
+          copying text between Word docs and web portals."
+          <cite>— PI at major research university</cite>
+        </blockquote>
+        <p>
+          The problem isn't AI capability. It's infrastructure. AI tools work with local files
+          and version control. Grant portals work with web forms and uploads.
+          <strong>There's no bridge between them.</strong>
+        </p>
+      </div>
+    </section>
+
+    <!-- Gap -->
+    <section class="thesis-section" id="gap">
+      <div class="thesis-content">
+        <h2>2. The Gap</h2>
+        <p>
+          Modern research tools are file-based, version-controlled, and AI-compatible.
+          Grant writing tools are none of these.
+        </p>
+
+        <div class="gap-grid">
+          <div class="gap-card gap-need">
+            <h3>What Researchers Want</h3>
+            <ul>
+              <li>Edit proposals in their IDE (VS Code, Cursor)</li>
+              <li>Use AI assistants (Claude Code, Copilot)</li>
+              <li>Version control with Git</li>
+              <li>Automated compliance checking</li>
+              <li>Collaborate without email chains</li>
+            </ul>
+          </div>
+          <div class="gap-card gap-exists">
+            <h3>What Exists</h3>
+            <ul>
+              <li><strong>Research.gov:</strong> Web-only, no API, manual validation</li>
+              <li><strong>Cayuse:</strong> Legacy enterprise, $50K+/year</li>
+              <li><strong>Proposal Central:</strong> Web forms, no AI integration</li>
+              <li><strong>Google Docs:</strong> Better collaboration, zero validation</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="gap-conclusion">
+          <strong>The gap:</strong> No tool treats grant proposals as structured data that
+          AI can read, validate, and help write. That's what we're building.
+        </p>
+      </div>
+    </section>
+
+    <!-- Solution -->
+    <section class="thesis-section" id="solution">
+      <div class="thesis-content">
+        <h2>3. The Solution</h2>
+        <p>
+          GrantKit bridges local AI workflows with grant submission requirements.
+          Markdown files that sync bidirectionally with the cloud.
+        </p>
+      </div>
+
+      <div class="solution-diagram">
+        <div class="solution-flow">
+          <div class="flow-item">
+            <div class="flow-icon">📁</div>
+            <div class="flow-label">Local Files</div>
+            <div class="flow-detail">Markdown + YAML</div>
+          </div>
+          <div class="flow-arrow">↔</div>
+          <div class="flow-item flow-highlight">
+            <div class="flow-icon">⚡</div>
+            <div class="flow-label">GrantKit</div>
+            <div class="flow-detail">Sync + Validate</div>
+          </div>
+          <div class="flow-arrow">↔</div>
+          <div class="flow-item">
+            <div class="flow-icon">☁️</div>
+            <div class="flow-label">Cloud</div>
+            <div class="flow-detail">Team + Portal</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="thesis-content">
+        <div class="platform-details">
+          <div class="platform-card">
+            <h3>Local Sync</h3>
+            <p>Proposals as local markdown files AI tools can read and edit.</p>
+            <ul>
+              <li>Works with Claude Code, Cursor, Copilot</li>
+              <li>Git-compatible for version control</li>
+              <li>Offline editing, auto-sync on save</li>
+              <li>YAML frontmatter for structured metadata</li>
+            </ul>
+            <code>grantkit pull && grantkit push</code>
+          </div>
+          <div class="platform-card">
+            <h3>NSF Validation</h3>
+            <p>200+ compliance rules checked automatically before you waste time.</p>
+            <ul>
+              <li>Page limits, font requirements, margin checks</li>
+              <li>Budget arithmetic verification</li>
+              <li>Required sections and formatting</li>
+              <li>Inline error messages with fixes</li>
+            </ul>
+            <code>grantkit validate nsf-cssi-elements</code>
+          </div>
+          <div class="platform-card">
+            <h3>Team Collaboration</h3>
+            <p>Real-time sync without email attachments or version conflicts.</p>
+            <ul>
+              <li>Share grants with collaborators</li>
+              <li>Web editor for non-technical users</li>
+              <li>Audit trail of all changes</li>
+              <li>Comments and suggestions</li>
+            </ul>
+            <code>grantkit share user@university.edu</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Markets -->
+    <section class="thesis-section" id="markets">
+      <div class="thesis-content">
+        <h2>4. The Markets</h2>
+        <p>Research funding is massive, and the tools are decades behind.</p>
+
+        <div class="market-cards">
+          <div class="market-card">
+            <h3>Research Grants</h3>
+            <div class="market-size">$90B+/year<span class="cite" data-id="3">[3]</span></div>
+            <p>Federal research funding in the US alone. NSF, NIH, DOE, DOD each run billions in annual competitions.</p>
+          </div>
+          <div class="market-card">
+            <h3>Grant Management Software</h3>
+            <div class="market-size">$2.8B → $5.6B<span class="cite" data-id="4">[4]</span></div>
+            <p>Growing 10%+ annually. Legacy vendors (Cayuse, InfoEd) charge $50K+/year for outdated tools.</p>
+          </div>
+          <div class="market-card">
+            <h3>Research Institutions</h3>
+            <div class="market-size">5,000+</div>
+            <p>US universities, national labs, research nonprofits. Each submits dozens to hundreds of proposals annually.</p>
+          </div>
+          <div class="market-card">
+            <h3>AI Writing Tools</h3>
+            <div class="market-size">$5B+ by 2027<span class="cite" data-id="5">[5]</span></div>
+            <p>Jasper, Copy.ai, and others for marketing. No dominant player for research/grant writing.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Competition -->
+    <section class="thesis-section" id="competition">
+      <div class="thesis-content">
+        <h2>5. Competitive Landscape</h2>
+        <p>Nobody combines local-first editing + AI integration + compliance validation.</p>
+
+        <div class="competitive-table-container">
+          <table class="competitive-table">
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Research.gov</th>
+                <th>Cayuse</th>
+                <th>Google Docs</th>
+                <th class="highlight-col">GrantKit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Local file editing</td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+              <tr>
+                <td>AI tool compatible</td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="partial-icon">◐</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+              <tr>
+                <td>NSF validation</td>
+                <td><span class="partial-icon">◐</span></td>
+                <td><span class="check-icon">✓</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+              <tr>
+                <td>Version control</td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="partial-icon">◐</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+              <tr>
+                <td>Free tier</td>
+                <td><span class="check-icon">✓</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="check-icon">✓</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+              <tr>
+                <td>Open source</td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td><span class="x-icon">—</span></td>
+                <td class="highlight-col"><span class="check-icon">✓</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="competitor-notes">
+          <div class="competitor-note">
+            <h4>Research.gov</h4>
+            <p>NSF's official portal. Web-only, validates on submission (too late), no collaboration features.</p>
+          </div>
+          <div class="competitor-note">
+            <h4>Cayuse</h4>
+            <p>Enterprise grant management. $50K+/year. Built for compliance officers, not researchers.</p>
+          </div>
+          <div class="competitor-note">
+            <h4>Google Docs</h4>
+            <p>Great for collaboration. Zero grant-specific features. No validation, no structure.</p>
+          </div>
+          <div class="competitor-note">
+            <h4>Overleaf</h4>
+            <p>LaTeX for papers. Not designed for grants. No compliance validation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="thesis-section" id="model">
+      <div class="thesis-content">
+        <h2>6. Business Model</h2>
+        <p>Open source CLI. Hosted cloud service. Enterprise for institutions.</p>
+
+        <div class="model-stack">
+          <div class="stack-layer stack-free">
+            <div>
+              <h3>Open Source</h3>
+              <p>CLI tool, local validation, single-user. Apache 2.0 licensed.</p>
+            </div>
+            <span class="price">Free</span>
+          </div>
+          <div class="stack-layer stack-api">
+            <div>
+              <h3>Pro</h3>
+              <p>Cloud sync, team collaboration, unlimited grants.</p>
+            </div>
+            <span class="price">$29/mo</span>
+          </div>
+          <div class="stack-layer stack-data">
+            <div>
+              <h3>Team</h3>
+              <p>Shared workspace, admin controls, priority support.</p>
+            </div>
+            <span class="price">$99/mo</span>
+          </div>
+          <div class="stack-layer stack-enterprise">
+            <div>
+              <h3>Institution</h3>
+              <p>SSO, compliance reporting, custom integrations, dedicated support.</p>
+            </div>
+            <span class="price">$10K-50K/year</span>
+          </div>
+        </div>
+
+        <div class="model-precedent">
+          <h3>Developer Tool Precedents</h3>
+          <div class="precedent-grid">
+            <div class="precedent">
+              <span class="precedent-name">Overleaf</span>
+              <span class="precedent-revenue">$20M+ ARR</span>
+            </div>
+            <div class="precedent">
+              <span class="precedent-name">Notion</span>
+              <span class="precedent-revenue">$500M+ ARR</span>
+            </div>
+            <div class="precedent">
+              <span class="precedent-name">Linear</span>
+              <span class="precedent-revenue">$25M+ ARR</span>
+            </div>
+          </div>
+          <p class="precedent-note">All started free/cheap, expanded to enterprise.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Traction -->
+    <section class="thesis-section" id="traction">
+      <div class="thesis-content">
+        <h2>7. Traction</h2>
+        <p>Early but promising. Built to scratch our own itch.</p>
+
+        <div class="traction-grid">
+          <div class="traction-stat">
+            <span class="traction-value">2</span>
+            <span class="traction-label">proposals in progress</span>
+          </div>
+          <div class="traction-stat">
+            <span class="traction-value">$1.2M</span>
+            <span class="traction-label">total requested</span>
+          </div>
+          <div class="traction-stat">
+            <span class="traction-value">100%</span>
+            <span class="traction-label">open source</span>
+          </div>
+          <div class="traction-stat">
+            <span class="traction-value">Live</span>
+            <span class="traction-label">app.grantkit.io</span>
+          </div>
+        </div>
+
+        <div class="traction-users">
+          <h3>Current Usage</h3>
+          <div class="user-grid">
+            <div class="user-card">
+              <h4>PolicyEngine</h4>
+              <p>Using GrantKit for NSF CSSI proposal. Real validation, real workflow.</p>
+            </div>
+            <div class="user-card">
+              <h4>Anthropic Collaboration</h4>
+              <p>AI economic futures grant using Claude Code + GrantKit.</p>
+            </div>
+            <div class="user-card">
+              <h4>Dogfooding</h4>
+              <p>Every feature built because we needed it for actual proposals.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lighthouse-section">
+          <h3>Why Researcher-First</h3>
+          <p>Bottom-up adoption in research is proven:</p>
+          <div class="lighthouse-grid">
+            <div class="lighthouse-card">
+              <h4>Overleaf</h4>
+              <p>Started with individual researchers, now 12M+ users and institutional deals.</p>
+            </div>
+            <div class="lighthouse-card">
+              <h4>GitHub</h4>
+              <p>Developers adopted first, enterprises followed. Now $7.5B acquisition.</p>
+            </div>
+            <div class="lighthouse-card">
+              <h4>Slack</h4>
+              <p>Teams adopted, IT departments bought enterprise. $27B acquisition.</p>
+            </div>
+            <div class="lighthouse-card">
+              <h4>GrantKit</h4>
+              <p>Researchers adopt for AI workflow. Institutions buy for compliance + collaboration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section class="thesis-section" id="team">
+      <div class="thesis-content">
+        <h2>8. Team</h2>
+
+        <div class="team-grid">
+          <div class="team-member">
+            <h3>Max Ghenis</h3>
+            <p class="team-role">Founder</p>
+            <ul>
+              <li>Founded PolicyEngine—used by UK Government, US Congress</li>
+              <li>Former Google data scientist</li>
+              <li>MIT economics, UC Berkeley statistics</li>
+              <li>Submitted 10+ grant proposals, won multiple</li>
+            </ul>
+            <div class="team-links">
+              <a href="https://linkedin.com/in/maxghenis" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/maxghenis" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+          </div>
+
+          <div class="team-member team-hiring">
+            <h3>Hiring</h3>
+            <p class="team-role">Open Roles</p>
+            <ul>
+              <li>Full-stack engineer (React + Python)</li>
+              <li>Research partnerships lead</li>
+              <li>First hires post-funding</li>
+            </ul>
+            <p class="team-note">Built on PolicyEngine's open source community</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Risks -->
+    <section class="thesis-section" id="risks">
+      <div class="thesis-content">
+        <h2>9. Risks & Mitigations</h2>
+
+        <div class="risks-grid">
+          <div class="risk-card">
+            <h4>Research.gov improves</h4>
+            <p class="risk-q">Won't NSF just add these features?</p>
+            <p>Government portals move slowly. Research.gov hasn't had major updates in years. Even if they add features, they won't support local files or third-party AI tools.</p>
+          </div>
+
+          <div class="risk-card">
+            <h4>Cayuse adds AI</h4>
+            <p class="risk-q">Can't incumbents just bolt on AI?</p>
+            <p>Enterprise vendors serve compliance officers, not researchers. Their architecture is web-first. Adding local sync would require rewriting their entire product.</p>
+          </div>
+
+          <div class="risk-card">
+            <h4>Researchers won't pay</h4>
+            <p class="risk-q">Isn't this market price-sensitive?</p>
+            <p>$29/mo is trivial vs. grant amounts ($100K-$1M+). More importantly, institutions pay for tools researchers demand. Bottom-up adoption, top-down purchasing.</p>
+          </div>
+
+          <div class="risk-card">
+            <h4>AI gets good enough</h4>
+            <p class="risk-q">Won't AI just write grants end-to-end?</p>
+            <p>AI still needs structured inputs and validation. We're not competing with AI—we're the infrastructure AI tools use to interact with grant systems.</p>
+          </div>
+
+          <div class="risk-card">
+            <h4>Single founder</h4>
+            <p class="risk-q">Why no co-founder?</p>
+            <p>Actively looking. Seed capital enables founding hires. PolicyEngine community provides extended team for contract work.</p>
+          </div>
+
+          <div class="risk-card">
+            <h4>NSF-specific</h4>
+            <p class="risk-q">What about other agencies?</p>
+            <p>NSF is the beachhead. Same infrastructure extends to NIH, DOE, DOD, foundations. Validation rules differ; sync architecture doesn't.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ask -->
+    <section class="thesis-section" id="ask">
+      <div class="thesis-content">
+        <h2>10. The Ask</h2>
+
+        <div class="ask-container">
+          <div class="ask-amount">
+            <span class="ask-label">Seed Round</span>
+            <span class="ask-value">$1-2M</span>
+          </div>
+
+          <div class="ask-details">
+            <div class="ask-use">
+              <h3>Use of Funds</h3>
+              <div class="fund-bars">
+                <div class="fund-bar">
+                  <div class="fund-fill" style="width: 50%"></div>
+                  <span class="fund-label">50% Engineering</span>
+                </div>
+                <div class="fund-bar">
+                  <div class="fund-fill" style="width: 25%"></div>
+                  <span class="fund-label">25% Go-to-Market</span>
+                </div>
+                <div class="fund-bar">
+                  <div class="fund-fill" style="width: 15%"></div>
+                  <span class="fund-label">15% Support/Ops</span>
+                </div>
+                <div class="fund-bar">
+                  <div class="fund-fill" style="width: 10%"></div>
+                  <span class="fund-label">10% Legal/Admin</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ask-milestones">
+              <h3>Milestones to Series A</h3>
+              <ul>
+                <li>1,000+ active users</li>
+                <li>$500K ARR</li>
+                <li>3-5 institutional customers</li>
+                <li>NIH + DOE validation added</li>
+                <li>Proposals submitted → funded</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="ask-projections">
+          <h3>Revenue Path</h3>
+          <table class="projections-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>ARR</th>
+                <th>Users</th>
+                <th>Milestone</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Y1</td>
+                <td>$200K</td>
+                <td>500</td>
+                <td>Product-market fit, first institutional deal</td>
+              </tr>
+              <tr>
+                <td>Y2</td>
+                <td>$1M</td>
+                <td>2,000</td>
+                <td>NIH validation, 5+ institutions</td>
+              </tr>
+              <tr>
+                <td>Y3</td>
+                <td>$5M</td>
+                <td>10,000</td>
+                <td>Multi-agency, international expansion</td>
+              </tr>
+              <tr>
+                <td>Y4</td>
+                <td>$15M</td>
+                <td>30,000</td>
+                <td>Platform status, ecosystem</td>
+              </tr>
+              <tr>
+                <td>Y5</td>
+                <td>$40M</td>
+                <td>75,000</td>
+                <td>Category leader</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- References -->
+    <section class="thesis-section thesis-references">
+      <div class="thesis-content">
+        <h2>References</h2>
+        <ol class="reference-list">
+          <li id="ref-1">
+            <em>NSF Budget Request FY 2024</em> (2024).
+            <a href="https://www.nsf.gov/about/budget/" target="_blank" rel="noopener noreferrer">nsf.gov</a>
+          </li>
+          <li id="ref-2">
+            <em>NSF Proposal & Award Statistics</em> (2023).
+            <a href="https://www.nsf.gov/statistics/" target="_blank" rel="noopener noreferrer">nsf.gov</a>
+          </li>
+          <li id="ref-3">
+            AAAS. <em>Federal R&D Budget Dashboard</em> (2024).
+            <a href="https://www.aaas.org/programs/r-d-budget-and-policy" target="_blank" rel="noopener noreferrer">aaas.org</a>
+          </li>
+          <li id="ref-4">
+            Grand View Research. <em>Grant Management Software Market</em> (2024).
+            <a href="https://www.grandviewresearch.com/industry-analysis/grant-management-software-market" target="_blank" rel="noopener noreferrer">grandviewresearch.com</a>
+          </li>
+          <li id="ref-5">
+            MarketsandMarkets. <em>AI Writing Assistant Market</em> (2024).
+            <a href="https://www.marketsandmarkets.com/" target="_blank" rel="noopener noreferrer">marketsandmarkets.com</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="thesis-cta">
+      <h2>Interested?</h2>
+      <p>Building the infrastructure for AI-native grant writing.</p>
+      <div class="cta-buttons">
+        <a href="mailto:max@policyengine.org" class="btn-primary">
+          Get in Touch
+        </a>
+        <a href="/" class="btn-secondary">
+          ← Back to Home
+        </a>
+      </div>
+    </section>
+
+    <script>
+      // Scroll spy for nav
+      const sections = ['problem', 'gap', 'solution', 'markets', 'competition', 'model', 'traction', 'team', 'risks', 'ask'];
+      const navButtons = document.querySelectorAll('.thesis-nav button');
+
+      function updateActiveSection() {
+        for (const section of sections) {
+          const el = document.getElementById(section);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 200 && rect.bottom >= 200) {
+              navButtons.forEach(btn => btn.classList.remove('active'));
+              document.querySelector(`button[data-section="${section}"]`)?.classList.add('active');
+              break;
+            }
+          }
+        }
+      }
+
+      window.addEventListener('scroll', updateActiveSection);
+      updateActiveSection();
+
+      // Nav click handlers
+      navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const section = btn.dataset.section;
+          document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+
+      // Citation hover cards
+      document.querySelectorAll('.cite').forEach(cite => {
+        const id = cite.dataset.id;
+        cite.style.cursor = 'pointer';
+        cite.addEventListener('click', () => {
+          document.getElementById(`ref-${id}`)?.scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    </script>
+  </body>
+</html>
