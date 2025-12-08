@@ -5,7 +5,7 @@ import '../styles/global.css'
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="/logo-icon.jpeg" />
+    <link rel="icon" href="/logo.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GrantKit - AI-Native Grant Writing for Modern Teams</title>
     <meta name="description" content="GrantKit syncs your proposals to local markdown files so Claude Code, Cursor, and other AI tools can help you write them. NSF validation built in." />
@@ -13,91 +13,138 @@ import '../styles/global.css'
     <meta property="og:description" content="You use AI agents for code. Now use them for grants." />
     <meta property="og:type" content="website" />
   </head>
-  <body class="min-h-screen bg-gradient-to-b from-secondary-50 to-white">
+  <body class="min-h-screen hero-gradient relative overflow-hidden">
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 grid-pattern opacity-40 pointer-events-none"></div>
+
     <!-- Header -->
-    <header class="border-b border-secondary-100 bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <img src="/logo-icon.jpeg" alt="GrantKit" class="h-10 w-auto" />
-          <span class="text-xl font-bold text-secondary-900">GrantKit</span>
-        </div>
-        <div class="flex items-center gap-4">
-          <a
-            href="/thesis"
-            class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors"
-          >
-            Thesis
-          </a>
-          <a
-            href="https://docs.grantkit.io"
-            class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors"
-          >
-            Docs
-          </a>
-          <a
-            href="https://app.grantkit.io"
-            class="flex items-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 transition-colors"
-          >
-            Sign in
-          </a>
+    <header class="relative z-50 sticky top-0">
+      <div class="glass border-b border-secondary-100/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <img src="/logo.svg" alt="GrantKit" class="h-10 w-auto" />
+              <div class="absolute -inset-1 bg-[#00d4ff]/20 rounded-xl blur-lg -z-10"></div>
+            </div>
+            <span class="text-xl font-bold text-secondary-900 tracking-tight">GrantKit</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <a
+              href="/thesis"
+              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
+            >
+              Thesis
+            </a>
+            <a
+              href="https://docs.grantkit.io"
+              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
+            >
+              Docs
+            </a>
+            <a
+              href="https://app.grantkit.io"
+              class="btn btn-primary"
+            >
+              Sign in
+            </a>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 text-center">
-      <p class="text-sm font-semibold text-primary-600 mb-4 tracking-wide uppercase">For AI-native teams</p>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-secondary-900 mb-6 tracking-tight">
-        You use AI agents for code.<br />
-        <span class="text-primary-600">Now use them for grants.</span>
-      </h1>
-      <p class="text-lg sm:text-xl text-secondary-600 mb-8 sm:mb-10 max-w-2xl mx-auto">
-        GrantKit syncs your proposals to local markdown files so Claude Code, Cursor, and other AI tools can help you write them. NSF validation built in.
-      </p>
-      <a
-        href="https://app.grantkit.io"
-        class="inline-flex items-center gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-primary-600 text-white rounded-xl font-semibold text-base sm:text-lg hover:bg-primary-700 transition-all shadow-lg shadow-primary-600/25 hover:shadow-xl hover:shadow-primary-600/30"
-      >
-        <svg class="w-6 h-6" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-          <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-          <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-          <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-        </svg>
-        Get started with Google
-      </a>
-      <p class="mt-4 text-sm text-secondary-500">
-        Open source · Currently in beta
-      </p>
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20 sm:pb-24 text-center">
+      <!-- Floating accent elements -->
+      <div class="absolute top-20 left-10 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl animate-float"></div>
+      <div class="absolute top-40 right-10 w-48 h-48 bg-[#00d4ff]/5 rounded-full blur-2xl animate-float" style="animation-delay: 1s"></div>
+
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-900 text-white text-sm font-medium mb-8 animate-fade-in">
+          <svg class="w-4 h-4 text-[#00d4ff]" fill="currentColor" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
+          <span>For AI-native teams</span>
+          <svg class="w-4 h-4 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </div>
+
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-secondary-900 mb-8 tracking-tight leading-[1.1] animate-fade-in-up" style="animation-delay: 100ms">
+          You use AI agents for code.
+          <br />
+          <span class="gradient-text">Now use them for grants.</span>
+        </h1>
+
+        <p class="text-lg sm:text-xl md:text-2xl text-secondary-500 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 200ms">
+          GrantKit syncs your proposals to local markdown files so <span class="text-secondary-700 font-medium">Claude Code</span>, <span class="text-secondary-700 font-medium">Cursor</span>, and other AI tools can help you write them.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 300ms">
+          <a
+            href="https://app.grantkit.io"
+            class="btn btn-electric text-lg px-8 py-4 glow-subtle"
+          >
+            <svg class="w-6 h-6" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+              <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+            </svg>
+            Get started with Google
+          </a>
+          <a
+            href="https://github.com/GrantKit/grantkit"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-secondary text-lg px-8 py-4"
+          >
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            View on GitHub
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center gap-6 mt-8 text-sm text-secondary-400 animate-fade-in" style="animation-delay: 400ms">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            Open source
+          </span>
+          <span class="w-1 h-1 rounded-full bg-secondary-300"></span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            NSF validated
+          </span>
+          <span class="w-1 h-1 rounded-full bg-secondary-300"></span>
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+            Free forever
+          </span>
+        </div>
+      </div>
     </section>
 
     <!-- Features -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="bg-white p-8 rounded-2xl border border-secondary-200 shadow-sm">
-          <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-4">
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 stagger">
+        <div class="feature-card card p-8 animate-fade-in-up">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Track Applications</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             Keep all your grant applications in one place. See deadlines, status, and requested amounts at a glance.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-2xl border border-secondary-200 shadow-sm">
-          <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-4">
+        <div class="feature-card card p-8 animate-fade-in-up" style="animation-delay: 50ms">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Manage Responses</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             Edit and track progress on each response. Word counts, character limits, and completion status built in.
           </p>
         </div>
-        <div class="bg-white p-8 rounded-2xl border border-secondary-200 shadow-sm">
-          <div class="w-12 h-12 bg-primary-100 text-primary-600 rounded-xl flex items-center justify-center mb-4">
+        <div class="feature-card card p-8 animate-fade-in-up" style="animation-delay: 100ms">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Team Collaboration</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             Everyone on your team can access and edit grants. No more version conflicts or email chains.
           </p>
         </div>
@@ -105,180 +152,189 @@ import '../styles/global.css'
     </section>
 
     <!-- Why GrantKit -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-4 text-center">Why not just use Grantable?</h2>
-      <p class="text-secondary-600 text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
-        Other grant tools have their own AI built in. But you already have Claude Code. GrantKit gets out of the way and lets your tools do the writing.
-      </p>
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+      <div class="text-center mb-8 sm:mb-12">
+        <span class="badge badge-electric mb-4">Different by design</span>
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">Why not just use Grantable?</h2>
+        <p class="text-secondary-500 max-w-2xl mx-auto text-lg">
+          Other grant tools have their own AI built in. But you already have <span class="text-secondary-700 font-medium">Claude Code</span>. GrantKit gets out of the way and lets your tools do the writing.
+        </p>
+      </div>
 
       <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 mb-10 sm:mb-16">
-        <div class="bg-gradient-to-br from-primary-50 to-white p-8 rounded-2xl border border-primary-100">
-          <div class="w-12 h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center mb-4">
+        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Open Source + CLI</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             Your proposals live in Git. Use Claude Code, Cursor, or any AI tool to craft responses locally. Full control over your data.
           </p>
         </div>
-        <div class="bg-gradient-to-br from-primary-50 to-white p-8 rounded-2xl border border-primary-100">
-          <div class="w-12 h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center mb-4">
+        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Web + Local Hybrid</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             Edit in the web app for quick updates. Use your local editor for deep work. Changes sync automatically via Git.
           </p>
         </div>
-        <div class="bg-gradient-to-br from-primary-50 to-white p-8 rounded-2xl border border-primary-100">
-          <div class="w-12 h-12 bg-primary-600 text-white rounded-xl flex items-center justify-center mb-4">
+        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
+          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
           </div>
           <h3 class="text-lg font-bold text-secondary-900 mb-2">Automated Validators</h3>
-          <p class="text-secondary-600">
+          <p class="text-secondary-500">
             NSF compliance checking built-in. Validate page limits, formatting rules, and required sections before submission.
           </p>
         </div>
       </div>
 
       <!-- Comparison Table -->
-      <div class="bg-white rounded-2xl border border-secondary-200 overflow-hidden shadow-sm">
+      <div class="card overflow-hidden">
         <div class="overflow-x-auto">
           <table class="w-full text-sm sm:text-base">
             <thead>
-              <tr class="border-b border-secondary-200 bg-secondary-50">
+              <tr class="border-b border-midnight-100 bg-midnight-50">
                 <th class="text-left p-3 sm:p-4 font-semibold text-secondary-900">Feature</th>
-                <th class="text-center p-3 sm:p-4 font-semibold text-primary-700 bg-primary-50">GrantKit</th>
-                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-600 hidden md:table-cell">Instrumentl</th>
-                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-600">Grantable</th>
-                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-600 hidden md:table-cell">Google Docs</th>
+                <th class="text-center p-3 sm:p-4 font-semibold text-[#00d4ff] bg-midnight-900">GrantKit</th>
+                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-500 hidden md:table-cell">Instrumentl</th>
+                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-500">Grantable</th>
+                <th class="text-center p-3 sm:p-4 font-semibold text-secondary-500 hidden md:table-cell">Google Docs</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-secondary-100">
+            <tbody class="divide-y divide-midnight-100">
               <tr>
-                <td class="p-3 sm:p-4 text-secondary-700">Open source</td>
-                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-green-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+                <td class="p-3 sm:p-4 text-secondary-600">Open source</td>
+                <td class="p-3 sm:p-4 text-center bg-midnight-900/5"><svg class="w-5 h-5 text-[#00d4ff] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
               </tr>
-              <tr class="bg-secondary-50/50">
-                <td class="p-3 sm:p-4 text-secondary-700">Local CLI + AI</td>
-                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-green-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+              <tr class="bg-midnight-50/30">
+                <td class="p-3 sm:p-4 text-secondary-600">Local CLI + AI</td>
+                <td class="p-3 sm:p-4 text-center bg-midnight-900/5"><svg class="w-5 h-5 text-[#00d4ff] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></td>
               </tr>
               <tr>
-                <td class="p-3 sm:p-4 text-secondary-700">NSF validation</td>
-                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-green-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+                <td class="p-3 sm:p-4 text-secondary-600">NSF validation</td>
+                <td class="p-3 sm:p-4 text-center bg-midnight-900/5"><svg class="w-5 h-5 text-[#00d4ff] mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
               </tr>
-              <tr class="bg-secondary-50/50">
-                <td class="p-3 sm:p-4 text-secondary-700">Built-in AI</td>
-                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></td>
-                <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-green-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
-                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-green-600 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+              <tr class="bg-midnight-50/30">
+                <td class="p-3 sm:p-4 text-secondary-600">Built-in AI</td>
+                <td class="p-3 sm:p-4 text-center bg-midnight-900/5"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg></td>
+                <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-success-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
+                <td class="p-3 sm:p-4 text-center"><svg class="w-5 h-5 text-success-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg></td>
                 <td class="p-3 sm:p-4 text-center hidden md:table-cell"><svg class="w-5 h-5 text-secondary-300 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></td>
               </tr>
               <tr>
-                <td class="p-3 sm:p-4 text-secondary-700">Price</td>
-                <td class="p-3 sm:p-4 text-center font-semibold text-green-700">Free</td>
-                <td class="p-3 sm:p-4 text-center text-secondary-600 hidden md:table-cell">$179-299/mo</td>
-                <td class="p-3 sm:p-4 text-center text-secondary-600">$49-199/mo</td>
-                <td class="p-3 sm:p-4 text-center text-secondary-600 hidden md:table-cell">Free</td>
+                <td class="p-3 sm:p-4 text-secondary-600">Price</td>
+                <td class="p-3 sm:p-4 text-center font-bold text-[#00d4ff] bg-midnight-900/5">Free</td>
+                <td class="p-3 sm:p-4 text-center text-secondary-500 hidden md:table-cell">$179-299/mo</td>
+                <td class="p-3 sm:p-4 text-center text-secondary-500">$49-199/mo</td>
+                <td class="p-3 sm:p-4 text-center text-secondary-500 hidden md:table-cell">Free</td>
               </tr>
             </tbody>
           </table>
         </div>
       </div>
-      <p class="text-center text-sm text-secondary-500 mt-4">
+      <p class="text-center text-sm text-secondary-400 mt-4">
         Pricing from public sites. GrantKit lets you use your own AI tools (Claude Code, Cursor, etc.) locally.
       </p>
     </section>
 
     <!-- Workflow -->
-    <section class="bg-secondary-50 py-12 sm:py-20">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-4 text-center">How it works</h2>
-        <p class="text-secondary-600 text-center mb-8 sm:mb-12 max-w-2xl mx-auto">
-          GrantKit syncs between local files and the cloud. Use AI tools locally, collaborate in the browser.
-        </p>
+    <section class="relative bg-midnight-50 py-12 sm:py-20 overflow-hidden">
+      <!-- Subtle grid pattern -->
+      <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-8 sm:mb-12">
+          <span class="badge badge-electric mb-4">4 simple steps</span>
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">How it works</h2>
+          <p class="text-secondary-500 max-w-2xl mx-auto text-lg">
+            GrantKit syncs between local files and the cloud. Use AI tools locally, collaborate in the browser.
+          </p>
+        </div>
 
         <!-- Workflow Steps -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
-          <div class="bg-white p-4 sm:p-6 rounded-2xl border border-secondary-200 shadow-sm text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+          <div class="feature-card card p-4 sm:p-6 text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
               <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
             </div>
-            <div class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-1 sm:mb-2">Step 1</div>
+            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 1</div>
             <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Pull</h3>
-            <p class="text-xs sm:text-sm text-secondary-600 hidden sm:block">Download grants to local markdown files</p>
+            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Download grants to local markdown files</p>
           </div>
-          <div class="bg-white p-4 sm:p-6 rounded-2xl border border-secondary-200 shadow-sm text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+          <div class="feature-card card p-4 sm:p-6 text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
               <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
             </div>
-            <div class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-1 sm:mb-2">Step 2</div>
+            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 2</div>
             <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Edit</h3>
-            <p class="text-xs sm:text-sm text-secondary-600 hidden sm:block">Use Claude Code, Cursor, or any AI tool</p>
+            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Use Claude Code, Cursor, or any AI tool</p>
           </div>
-          <div class="bg-white p-4 sm:p-6 rounded-2xl border border-secondary-200 shadow-sm text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+          <div class="feature-card card p-4 sm:p-6 text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
               <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
             </div>
-            <div class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-1 sm:mb-2">Step 3</div>
+            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 3</div>
             <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Validate</h3>
-            <p class="text-xs sm:text-sm text-secondary-600 hidden sm:block">Check NSF compliance automatically</p>
+            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Check NSF compliance automatically</p>
           </div>
-          <div class="bg-white p-4 sm:p-6 rounded-2xl border border-secondary-200 shadow-sm text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-primary-100 text-primary-600 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+          <div class="feature-card card p-4 sm:p-6 text-center">
+            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
               <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
             </div>
-            <div class="text-xs font-bold text-primary-600 uppercase tracking-wider mb-1 sm:mb-2">Step 4</div>
+            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 4</div>
             <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Push</h3>
-            <p class="text-xs sm:text-sm text-secondary-600 hidden sm:block">Sync changes back to the cloud</p>
+            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Sync changes back to the cloud</p>
           </div>
         </div>
 
         <!-- Code Examples -->
-        <div class="bg-secondary-900 rounded-xl sm:rounded-2xl p-4 sm:p-8 shadow-xl overflow-hidden">
-          <div class="flex items-center gap-2 mb-4 sm:mb-6">
-            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-            <span class="ml-4 text-secondary-400 text-sm font-mono">Terminal</span>
+        <div class="terminal glow">
+          <div class="terminal-header">
+            <div class="terminal-dot bg-danger-500"></div>
+            <div class="terminal-dot bg-warning-500"></div>
+            <div class="terminal-dot bg-success-500"></div>
+            <span class="ml-4 text-midnight-400 text-sm font-mono">Terminal</span>
           </div>
-          <div class="font-mono text-xs sm:text-sm space-y-3 sm:space-y-4 overflow-x-auto">
+          <div class="terminal-body space-y-3 sm:space-y-4 overflow-x-auto">
             <div>
-              <span class="text-secondary-500"># Install GrantKit CLI</span>
-              <div class="text-green-400">$ pip install grantkit</div>
+              <span class="text-midnight-400"># Install GrantKit CLI</span>
+              <div class="text-[#00d4ff]">$ pip install grantkit</div>
             </div>
             <div>
-              <span class="text-secondary-500"># Pull grants from the cloud</span>
-              <div class="text-green-400">$ grantkit sync pull</div>
-              <div class="text-secondary-400 ml-2">✅ Pulled 10 grants, 94 responses</div>
+              <span class="text-midnight-400"># Pull grants from the cloud</span>
+              <div class="text-[#00d4ff]">$ grantkit sync pull</div>
+              <div class="text-success-500 ml-2">✅ Pulled 10 grants, 94 responses</div>
             </div>
             <div>
-              <span class="text-secondary-500"># Edit with your favorite AI tool</span>
-              <div class="text-green-400">$ claude "improve the broader impacts section"</div>
+              <span class="text-midnight-400"># Edit with your favorite AI tool</span>
+              <div class="text-[#00d4ff]">$ claude "improve the broader impacts section"</div>
             </div>
             <div>
-              <span class="text-secondary-500"># Validate NSF compliance</span>
-              <div class="text-green-400">$ grantkit validate</div>
-              <div class="text-secondary-400 ml-2">✅ All checks passed</div>
+              <span class="text-midnight-400"># Validate NSF compliance</span>
+              <div class="text-[#00d4ff]">$ grantkit validate</div>
+              <div class="text-success-500 ml-2">✅ All checks passed</div>
             </div>
             <div>
-              <span class="text-secondary-500"># Push changes back</span>
-              <div class="text-green-400">$ grantkit sync push</div>
-              <div class="text-secondary-400 ml-2">✅ Synced 3 responses to cloud</div>
+              <span class="text-midnight-400"># Push changes back</span>
+              <div class="text-[#00d4ff]">$ grantkit sync push</div>
+              <div class="text-success-500 ml-2">✅ Synced 3 responses to cloud</div>
             </div>
             <div>
-              <span class="text-secondary-500"># Or watch for changes and auto-sync</span>
-              <div class="text-green-400">$ grantkit sync watch</div>
-              <div class="text-secondary-400 ml-2">👀 Watching for changes...</div>
+              <span class="text-midnight-400"># Or watch for changes and auto-sync</span>
+              <div class="text-[#00d4ff]">$ grantkit sync watch</div>
+              <div class="text-midnight-300 ml-2">👀 Watching for changes...</div>
             </div>
           </div>
         </div>
@@ -287,37 +343,37 @@ import '../styles/global.css'
         <div class="mt-12 grid md:grid-cols-2 gap-8">
           <div>
             <h3 class="font-bold text-secondary-900 mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <svg class="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               Local File Structure
             </h3>
-            <div class="bg-white rounded-xl border border-secondary-200 p-6 font-mono text-sm">
-              <div class="text-secondary-600">
-                <div>my-grants/</div>
-                <div class="ml-4">├── nsf-cssi/</div>
+            <div class="card p-6 font-mono text-sm">
+              <div class="text-secondary-500">
+                <div class="text-secondary-700">my-grants/</div>
+                <div class="ml-4">├── <span class="text-[#00d4ff]">nsf-cssi/</span></div>
                 <div class="ml-8">├── grant.yaml</div>
                 <div class="ml-8">└── responses/</div>
                 <div class="ml-12">├── abstract.md</div>
                 <div class="ml-12">├── broader_impacts.md</div>
                 <div class="ml-12">└── technical_approach.md</div>
-                <div class="ml-4">├── arnold-labor/</div>
+                <div class="ml-4">├── <span class="text-[#00d4ff]">arnold-labor/</span></div>
                 <div class="ml-4">└── ...</div>
               </div>
             </div>
           </div>
           <div>
             <h3 class="font-bold text-secondary-900 mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <svg class="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
               Response Format (Markdown + YAML)
             </h3>
-            <div class="bg-white rounded-xl border border-secondary-200 p-6 font-mono text-sm">
-              <div class="text-secondary-500">---</div>
-              <div><span class="text-primary-600">title:</span> <span class="text-secondary-700">Broader Impacts</span></div>
-              <div><span class="text-primary-600">key:</span> <span class="text-secondary-700">broader_impacts</span></div>
-              <div><span class="text-primary-600">word_limit:</span> <span class="text-secondary-700">2500</span></div>
-              <div><span class="text-primary-600">status:</span> <span class="text-secondary-700">draft</span></div>
-              <div class="text-secondary-500">---</div>
+            <div class="card p-6 font-mono text-sm">
+              <div class="text-secondary-400">---</div>
+              <div><span class="text-[#00d4ff]">title:</span> <span class="text-secondary-600">Broader Impacts</span></div>
+              <div><span class="text-[#00d4ff]">key:</span> <span class="text-secondary-600">broader_impacts</span></div>
+              <div><span class="text-[#00d4ff]">word_limit:</span> <span class="text-secondary-600">2500</span></div>
+              <div><span class="text-[#00d4ff]">status:</span> <span class="text-secondary-600">draft</span></div>
+              <div class="text-secondary-400">---</div>
               <div class="mt-2 text-secondary-700"># Broader Impacts</div>
-              <div class="text-secondary-600 mt-1">PolicyEngine democratizes...</div>
+              <div class="text-secondary-500 mt-1">PolicyEngine democratizes...</div>
             </div>
           </div>
         </div>
@@ -327,7 +383,7 @@ import '../styles/global.css'
             href="https://github.com/GrantKit/grantkit"
             target="_blank"
             rel="noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-secondary-900 text-white rounded-xl font-semibold hover:bg-secondary-800 transition-colors"
+            class="btn btn-primary text-lg px-8 py-4"
           >
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
             View CLI on GitHub
@@ -338,57 +394,86 @@ import '../styles/global.css'
     </section>
 
     <!-- Stats -->
-    <section class="bg-secondary-900 py-10 sm:py-16">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <section class="relative bg-midnight-900 py-10 sm:py-16 overflow-hidden">
+      <!-- Decorative gradient orbs -->
+      <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-[#00d4ff]/5 rounded-full blur-2xl"></div>
+
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
-          <div>
-            <div class="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">$4.9M</div>
-            <div class="text-xs sm:text-base text-secondary-400">Total Requested</div>
+          <div class="group">
+            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">$4.9M</div>
+            <div class="text-xs sm:text-base text-midnight-400">Total Requested</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">10</div>
-            <div class="text-xs sm:text-base text-secondary-400">Active Grants</div>
+          <div class="group">
+            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">10</div>
+            <div class="text-xs sm:text-base text-midnight-400">Active Grants</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">94</div>
-            <div class="text-xs sm:text-base text-secondary-400">Response Sections</div>
+          <div class="group">
+            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">94</div>
+            <div class="text-xs sm:text-base text-midnight-400">Response Sections</div>
           </div>
-          <div>
-            <div class="text-2xl sm:text-4xl font-bold text-white mb-1 sm:mb-2">8</div>
-            <div class="text-xs sm:text-base text-secondary-400">Foundations</div>
+          <div class="group">
+            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">8</div>
+            <div class="text-xs sm:text-base text-midnight-400">Foundations</div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-20 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-4">Let your AI agent write your next grant</h2>
-      <p class="text-secondary-600 mb-6 sm:mb-8">Sign in to try GrantKit. Currently in beta for PolicyEngine team.</p>
-      <a
-        href="https://app.grantkit.io"
-        class="inline-flex items-center gap-3 px-6 py-3 bg-white border-2 border-secondary-200 text-secondary-700 rounded-xl font-semibold hover:bg-secondary-50 transition-colors"
-      >
-        <svg class="w-5 h-5" viewBox="0 0 24 24">
-          <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-          <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-          <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-          <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-        </svg>
-        Sign in with Google
-      </a>
+    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+      <div class="relative card p-8 sm:p-12 md:p-16 text-center overflow-hidden">
+        <!-- Background gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-midnight-900 to-midnight-800 -z-10"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl -z-10"></div>
+
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
+          Let your AI agent write your <span class="gradient-text">next grant</span>
+        </h2>
+        <p class="text-midnight-300 mb-8 text-lg max-w-xl mx-auto">
+          Sign in to try GrantKit. Currently in beta for PolicyEngine team.
+        </p>
+        <a
+          href="https://app.grantkit.io"
+          class="btn btn-electric text-lg px-8 py-4 glow"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+            <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+          </svg>
+          Get started with Google
+        </a>
+      </div>
     </section>
 
     <!-- Footer -->
-    <footer class="border-t border-secondary-100 py-6 sm:py-8">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between text-sm text-secondary-500">
-        <div class="flex items-center gap-2">
-          <img src="/logo-icon.jpeg" alt="GrantKit" class="h-8 w-auto" />
-          <span class="font-semibold text-secondary-700">GrantKit</span>
+    <footer class="border-t border-midnight-100 py-8 sm:py-12 bg-midnight-50/50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <img src="/logo.svg" alt="GrantKit" class="h-10 w-auto" />
+              <div class="absolute -inset-1 bg-[#00d4ff]/10 rounded-xl blur-md -z-10"></div>
+            </div>
+            <div>
+              <span class="font-bold text-secondary-900 text-lg">GrantKit</span>
+              <p class="text-xs text-secondary-400">AI-native grant writing</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-6 text-sm">
+            <a href="/thesis" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium">Thesis</a>
+            <a href="https://docs.grantkit.io" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium">Docs</a>
+            <a href="https://github.com/GrantKit" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium flex items-center gap-1.5">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              GitHub
+            </a>
+          </div>
         </div>
-        <div class="flex items-center gap-4">
-          <a href="https://docs.grantkit.io" class="hover:text-secondary-700 transition-colors">Docs</a>
-          <a href="https://github.com/GrantKit" class="hover:text-secondary-700 transition-colors">GitHub</a>
+        <div class="mt-8 pt-6 border-t border-midnight-100 text-center text-xs text-secondary-400">
+          Built with care by the PolicyEngine team
         </div>
       </div>
     </footer>
