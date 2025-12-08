@@ -1,0 +1,289 @@
+---
+import '../styles/global.css'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Claude Code Plugin - GrantKit</title>
+    <meta name="description" content="AI-native grant writing workflows for Claude Code. Skills and commands for working with the GrantKit CLI." />
+    <meta property="og:title" content="GrantKit Claude Code Plugin" />
+    <meta property="og:description" content="AI-native grant writing workflows for Claude Code" />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen bg-midnight-50">
+    <!-- Header -->
+    <header class="relative z-50 sticky top-0">
+      <div class="glass border-b border-secondary-100/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <a href="/" class="flex items-center gap-3">
+            <div class="relative">
+              <img src="/logo.svg" alt="GrantKit" class="h-10 w-auto" />
+              <div class="absolute -inset-1 bg-[#00d4ff]/20 rounded-xl blur-lg -z-10"></div>
+            </div>
+            <span class="text-xl font-bold text-secondary-900 tracking-tight">GrantKit</span>
+          </a>
+          <div class="flex items-center gap-4">
+            <a
+              href="/thesis"
+              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
+            >
+              Thesis
+            </a>
+            <a
+              href="https://docs.grantkit.io"
+              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
+            >
+              Docs
+            </a>
+            <a
+              href="https://app.grantkit.io"
+              class="btn btn-primary"
+            >
+              Sign in
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative max-w-4xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-12 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-900 text-white text-sm font-medium mb-8">
+        <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        <span>Claude Code Plugin</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl font-bold text-secondary-900 mb-6 tracking-tight">
+        Grant writing skills for <span class="gradient-text">Claude Code</span>
+      </h1>
+
+      <p class="text-xl text-secondary-500 mb-8 max-w-2xl mx-auto">
+        AI-native workflows for the GrantKit CLI. Skills teach Claude about NSF proposals. Commands automate common tasks.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a
+          href="https://github.com/GrantKit/claude-code-plugin"
+          target="_blank"
+          rel="noreferrer"
+          class="btn btn-electric text-lg px-8 py-4 glow-subtle"
+        >
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </section>
+
+    <!-- Install -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <div class="terminal glow">
+        <div class="terminal-header">
+          <div class="terminal-dot bg-danger-500"></div>
+          <div class="terminal-dot bg-warning-500"></div>
+          <div class="terminal-dot bg-success-500"></div>
+          <span class="ml-4 text-midnight-400 text-sm font-mono">Installation</span>
+        </div>
+        <div class="terminal-body space-y-4">
+          <div>
+            <span class="text-midnight-400"># Install the plugin</span>
+            <div class="text-[#00d4ff]">$ claude plugins add GrantKit/claude-code-plugin</div>
+          </div>
+          <div>
+            <span class="text-midnight-400"># Make sure GrantKit CLI is installed too</span>
+            <div class="text-[#00d4ff]">$ pip install grantkit</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-8 text-center">Skills</h2>
+      <p class="text-secondary-500 text-center mb-8 max-w-2xl mx-auto">
+        Skills teach Claude about grant writing. They're automatically used when relevant.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-midnight-900 text-[#00d4ff] rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="font-bold text-secondary-900">grantkit-workflow</h3>
+          </div>
+          <p class="text-secondary-500 mb-4">
+            CLI commands, file structure, sync patterns. Teaches Claude how to use <code class="text-sm bg-midnight-100 px-1.5 py-0.5 rounded">grantkit pull</code>, <code class="text-sm bg-midnight-100 px-1.5 py-0.5 rounded">push</code>, <code class="text-sm bg-midnight-100 px-1.5 py-0.5 rounded">validate</code>.
+          </p>
+          <ul class="text-sm text-secondary-500 space-y-1">
+            <li>• Local file structure (grant.yaml, responses/*.md)</li>
+            <li>• YAML frontmatter format</li>
+            <li>• Sync and validation workflow</li>
+          </ul>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-10 h-10 bg-midnight-900 text-[#00d4ff] rounded-lg flex items-center justify-center">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+            </div>
+            <h3 class="font-bold text-secondary-900">grantkit-writing</h3>
+          </div>
+          <p class="text-secondary-500 mb-4">
+            NSF best practices, PAPPG formatting rules, section templates. How to write compelling Broader Impacts.
+          </p>
+          <ul class="text-sm text-secondary-500 space-y-1">
+            <li>• NSF proposal structure</li>
+            <li>• Intellectual Merit vs Broader Impacts</li>
+            <li>• Program-specific guidance (CSSI, CAREER)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Commands -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-8 text-center">Slash Commands</h2>
+      <p class="text-secondary-500 text-center mb-8 max-w-2xl mx-auto">
+        Commands automate common grant writing tasks. Type them in Claude Code to run.
+      </p>
+
+      <div class="space-y-4">
+        <div class="card p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <code class="text-[#00d4ff] font-mono text-lg whitespace-nowrap">/grant-improve</code>
+            <p class="text-secondary-500">
+              Improve a specific response section. Reads the file, analyzes weaknesses, makes improvements while respecting word limits.
+            </p>
+          </div>
+          <div class="mt-3 text-sm text-secondary-400 font-mono bg-midnight-50 rounded-lg px-4 py-2">
+            /grant-improve broader_impacts
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <code class="text-[#00d4ff] font-mono text-lg whitespace-nowrap">/grant-review</code>
+            <p class="text-secondary-500">
+              Full proposal review. Checks completeness, runs validation, scores each section, provides actionable feedback.
+            </p>
+          </div>
+          <div class="mt-3 text-sm text-secondary-400 font-mono bg-midnight-50 rounded-lg px-4 py-2">
+            /grant-review nsf-cssi
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <code class="text-[#00d4ff] font-mono text-lg whitespace-nowrap">/grant-status</code>
+            <p class="text-secondary-500">
+              Quick status check. Shows deadlines, completion percentage, validation errors at a glance.
+            </p>
+          </div>
+          <div class="mt-3 text-sm text-secondary-400 font-mono bg-midnight-50 rounded-lg px-4 py-2">
+            /grant-status
+          </div>
+        </div>
+
+        <div class="card p-6">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+            <code class="text-[#00d4ff] font-mono text-lg whitespace-nowrap">/grant-sync</code>
+            <p class="text-secondary-500">
+              Sync with cloud. Pull latest changes, push local edits, or both.
+            </p>
+          </div>
+          <div class="mt-3 text-sm text-secondary-400 font-mono bg-midnight-50 rounded-lg px-4 py-2">
+            /grant-sync pull
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Example workflow -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-12">
+      <h2 class="text-2xl sm:text-3xl font-bold text-secondary-900 mb-8 text-center">Example Workflow</h2>
+
+      <div class="terminal glow">
+        <div class="terminal-header">
+          <div class="terminal-dot bg-danger-500"></div>
+          <div class="terminal-dot bg-warning-500"></div>
+          <div class="terminal-dot bg-success-500"></div>
+          <span class="ml-4 text-midnight-400 text-sm font-mono">Claude Code</span>
+        </div>
+        <div class="terminal-body space-y-4">
+          <div>
+            <span class="text-midnight-400"># Start a work session</span>
+            <div class="text-white">> /grant-sync pull</div>
+            <div class="text-success-500 ml-2">✅ Pulled 10 grants, 94 responses</div>
+          </div>
+          <div>
+            <span class="text-midnight-400"># Check what needs work</span>
+            <div class="text-white">> /grant-status nsf-cssi</div>
+            <div class="text-midnight-300 ml-2">NSF CSSI: 72% complete, due Jan 15</div>
+            <div class="text-warning-500 ml-2">⚠️ Broader Impacts needs work (1,200/2,500 words)</div>
+          </div>
+          <div>
+            <span class="text-midnight-400"># Improve the weak section</span>
+            <div class="text-white">> /grant-improve broader_impacts</div>
+            <div class="text-midnight-300 ml-2">Reading broader_impacts.md...</div>
+            <div class="text-midnight-300 ml-2">Strengthening outreach plan with metrics...</div>
+            <div class="text-success-500 ml-2">✅ Improved to 2,340 words, validation passed</div>
+          </div>
+          <div>
+            <span class="text-midnight-400"># Push changes</span>
+            <div class="text-white">> /grant-sync push</div>
+            <div class="text-success-500 ml-2">✅ Synced 1 response to cloud</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+      <div class="card p-8 sm:p-12 text-center bg-gradient-to-br from-midnight-900 to-midnight-800">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4">
+          Ready to streamline your grant writing?
+        </h2>
+        <p class="text-midnight-300 mb-8 max-w-xl mx-auto">
+          Install the plugin and let Claude Code help you write better proposals.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://github.com/GrantKit/claude-code-plugin"
+            target="_blank"
+            rel="noreferrer"
+            class="btn btn-electric px-8 py-4 glow"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            Get the Plugin
+          </a>
+          <a
+            href="/"
+            class="btn btn-secondary px-8 py-4 bg-white/10 border-white/20 text-white hover:bg-white/20"
+          >
+            ← Back to Home
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-midnight-100 py-8 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <img src="/logo.svg" alt="GrantKit" class="h-8 w-auto" />
+            <span class="font-bold text-secondary-900">GrantKit</span>
+          </div>
+          <div class="flex items-center gap-6 text-sm">
+            <a href="/thesis" class="text-secondary-500 hover:text-[#00d4ff] transition-colors">Thesis</a>
+            <a href="https://docs.grantkit.io" class="text-secondary-500 hover:text-[#00d4ff] transition-colors">Docs</a>
+            <a href="https://github.com/GrantKit" class="text-secondary-500 hover:text-[#00d4ff] transition-colors">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
