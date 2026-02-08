@@ -259,3 +259,51 @@
   background: rgba(0, 212, 255, 0.15);
   color: var(--color-electric-700);
 }
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-float,
+  .animate-scale-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .stagger > * {
+    animation-delay: 0ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .feature-card {
+    transition: none;
+  }
+
+  .feature-card:hover {
+    transform: none;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-electric,
+  .btn-secondary {
+    transition: none;
+  }
+}
+
+/* Accessibility: focus states */
+.btn:focus-visible,
+a:focus-visible,
+details summary:focus-visible {
+  outline: 2px solid var(--color-electric-500);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
+}

@@ -1319,3 +1319,31 @@ body {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* Accessibility: reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .flow-item:hover,
+  .market-card:hover {
+    transform: none;
+  }
+}
+
+/* Accessibility: focus states */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-electric-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.thesis-nav button:focus-visible {
+  outline: 2px solid var(--color-electric-500);
+  outline-offset: 2px;
+}
