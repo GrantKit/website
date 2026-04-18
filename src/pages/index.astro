@@ -1,622 +1,335 @@
 ---
-import '../styles/global.css'
+import Base from "../layouts/Base.astro";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/logo.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>GrantKit - AI-Native Grant Writing for Modern Teams</title>
-    <meta name="description" content="GrantKit syncs your proposals to local markdown files so Claude Code, Cursor, and other AI tools can help you write them. NSF validation built in." />
-    <meta property="og:title" content="GrantKit - AI-Native Grant Writing" />
-    <meta property="og:description" content="You use AI agents for code. Now use them for grants." />
-    <meta property="og:type" content="website" />
-  </head>
-  <body class="min-h-screen hero-gradient relative overflow-x-hidden" id="top">
-    <!-- Grid pattern overlay -->
-    <div class="absolute inset-0 grid-pattern opacity-40 pointer-events-none"></div>
+<Base
+  title="GrantKit — grants as files for AI agents"
+  description="GrantKit syncs your proposals between Supabase and local markdown so Claude Code, Cursor, and other AI agents can edit them like source code. Files are the medium. The cloud is for sharing."
+  eyebrow="a tool for writing grants as files"
+>
 
-    <!-- Header -->
-    <header class="relative z-50 sticky top-0" role="banner">
-      <div class="glass border-b border-secondary-100/50">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <a href="/" class="flex items-center gap-3" aria-label="GrantKit home">
-            <div class="relative">
-              <img src="/logo.svg" alt="" class="h-10 w-auto" />
-              <div class="absolute -inset-1 bg-[#00d4ff]/20 rounded-xl blur-lg -z-10"></div>
+    <!-- ================================================================
+         Hero — editorial poster with inline file path
+         ================================================================ -->
+    <section class="relative overflow-hidden">
+      <div class="container-page pt-16 md:pt-24 lg:pt-32 pb-20 md:pb-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-end">
+          <!-- Left: poster headline -->
+          <div class="lg:col-span-7">
+            <div class="chapter-label reveal mb-6 md:mb-10">
+              <span class="chapter-num">I.</span>
+              <span>Issue № 01 · April 2026</span>
             </div>
-            <span class="text-xl font-bold text-secondary-900 tracking-tight">GrantKit</span>
-          </a>
-          <nav class="flex items-center gap-4" aria-label="Main navigation">
-            <a
-              href="/plugin"
-              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
+
+            <h1 class="display reveal reveal-delay-1 text-[clamp(2.75rem,6.5vw,5.5rem)] leading-[0.94] tracking-[-0.02em]">
+              Your grants,
+              <span class="block">set like</span>
+              <span class="display-italic text-accent">a manuscript</span>
+              <span class="block">read by <span class="display-italic">your&nbsp;agents</span>.</span>
+            </h1>
+
+            <p
+              class="mt-8 md:mt-10 text-lead md:text-[1.25rem] max-w-[52ch] text-muted leading-[1.55] reveal reveal-delay-2"
             >
-              Plugin
-            </a>
-            <a
-              href="/thesis"
-              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
-            >
-              Thesis
-            </a>
-            <a
-              href="https://docs.grantkit.io"
-              class="text-secondary-600 hover:text-secondary-900 font-medium transition-colors hidden sm:block"
-            >
-              Docs
-            </a>
-            <a
-              href="https://app.grantkit.io"
-              class="btn btn-primary"
-            >
-              Sign in
-            </a>
-          </nav>
+              GrantKit keeps your proposals in Supabase for team access and
+              sharing, and on disk as plain markdown so Claude Code, Cursor,
+              and any other agent can read, edit, and validate them the way
+              they already edit code.
+            </p>
+
+            <div class="mt-10 flex flex-wrap items-center gap-6 reveal reveal-delay-3">
+              <a href="https://app.grantkit.io" class="btn btn-primary">Open the app →</a>
+              <a href="#how" class="btn-ghost link">How it works</a>
+            </div>
+
+            <p class="mt-10 marginnote reveal reveal-delay-4">
+              pip install grantkit · MIT licensed · v0.1 · source at
+              <a href="https://github.com/GrantKit/grantkit" class="link">github.com/GrantKit</a>
+            </p>
+          </div>
+
+          <!-- Right: file-path as object -->
+          <div class="lg:col-span-5 reveal reveal-delay-2">
+            <div class="pageframe p-6 md:p-8 grain">
+              <p class="eyebrow mb-4">The medium</p>
+              <div class="font-mono text-sm leading-[1.9] text-ink">
+                <span class="text-muted">~/grants/</span><br />
+                <span class="text-muted">├── </span>nsf-cssi/<br />
+                <span class="text-muted">│&nbsp;&nbsp; ├── </span>grant.yaml<br />
+                <span class="text-muted">│&nbsp;&nbsp; ├── </span>budget.yaml<br />
+                <span class="text-muted">│&nbsp;&nbsp; ├── </span>references.bib<br />
+                <span class="text-muted">│&nbsp;&nbsp; └── </span>responses/<br />
+                <span class="text-muted">│&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ├── </span
+                ><span class="text-accent">broader_impacts.md</span><br />
+                <span class="text-muted">│&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; ├── </span>technical_approach.md<br />
+                <span class="text-muted">│&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; └── </span>project_summary.md<br />
+                <span class="text-muted">└── </span>.grantkit/state.json <span class="marginnote">← baseline</span>
+              </div>
+              <hr class="my-6 border-rule" />
+              <p class="footnote">
+                A grant is a set of markdown files, a budget, a bib file, and a
+                baseline that knows what the cloud looked like at your last
+                sync.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
-    </header>
 
-    <!-- Hero -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 pb-20 sm:pb-24 text-center">
-      <!-- Floating accent elements -->
-      <div class="absolute top-20 left-10 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl animate-float"></div>
-      <div class="absolute top-40 right-10 w-48 h-48 bg-[#00d4ff]/5 rounded-full blur-2xl animate-float" style="animation-delay: 1s"></div>
-
-      <div class="relative">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-900 text-white text-sm font-medium mb-8 animate-fade-in">
-          <svg class="w-4 h-4 text-[#00d4ff]" fill="currentColor" viewBox="0 0 24 24"><path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/></svg>
-          <span>For AI-native teams</span>
-          <svg class="w-4 h-4 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-        </div>
-
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-secondary-900 mb-8 tracking-tight leading-[1.1] animate-fade-in-up" style="animation-delay: 100ms">
-          You use AI agents for code.
-          <br />
-          <span class="gradient-text">Now use them for grants.</span>
-        </h1>
-
-        <p class="text-lg sm:text-xl md:text-2xl text-secondary-500 mb-12 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 200ms">
-          GrantKit syncs your proposals to local markdown files so <span class="text-secondary-700 font-medium">Claude Code</span>, <span class="text-secondary-700 font-medium">Cursor</span>, and other AI tools can help you write them.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up" style="animation-delay: 300ms">
-          <a
-            href="https://app.grantkit.io"
-            class="btn btn-electric text-lg px-8 py-4 glow-subtle"
-          >
-            <svg class="w-6 h-6" aria-hidden="true" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-            </svg>
-            Sign in with Google
-          </a>
-          <a
-            href="https://github.com/GrantKit/grantkit"
-            target="_blank"
-            rel="noreferrer"
-            class="btn btn-secondary text-lg px-8 py-4"
-          >
-            <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-            View on GitHub
-          </a>
-        </div>
-
-        <div class="flex items-center justify-center gap-6 mt-8 text-sm text-secondary-400 animate-fade-in" style="animation-delay: 400ms">
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-            Open source
-          </span>
-          <span class="w-1 h-1 rounded-full bg-secondary-300"></span>
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-            NSF validation
-          </span>
-          <span class="w-1 h-1 rounded-full bg-secondary-300"></span>
-          <span class="flex items-center gap-2">
-            <svg class="w-4 h-4 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-            Free to start
-          </span>
-        </div>
+      <!-- Footer rule of the hero -->
+      <div class="container-page">
+        <hr class="rule-double" />
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 stagger">
-        <div class="feature-card card p-8 animate-fade-in-up">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+    <!-- ================================================================
+         Pull quote — the thesis
+         ================================================================ -->
+    <section class="relative">
+      <div class="container-page py-20 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-3">
+            <div class="chapter-label mb-4">
+              <span class="chapter-num">II.</span>
+              <span>Thesis</span>
+            </div>
+            <p class="marginnote">Why we wrote this</p>
           </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Track applications</h3>
-          <p class="text-secondary-500">
-            Keep all your grant applications in one place. See deadlines, status, and requested amounts at a glance.
-          </p>
-        </div>
-        <div class="feature-card card p-8 animate-fade-in-up" style="animation-delay: 50ms">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <div class="lg:col-span-9">
+            <blockquote class="pullquote max-w-[34ch]">
+              2023 was the year of the chatbot. 2024, RAG and finetuning. 2025,
+              MCP and tool use. <span class="text-accent">2026 will be the year of the computer environment and filesystem.</span>
+            </blockquote>
+            <p class="mt-6 eyebrow">
+              — Alex Albert, Anthropic · <a
+                href="https://x.com/alexalbert__/status/1983209299624243529"
+                class="link normal-case tracking-normal"
+                >see the post</a
+              >
+            </p>
+            <p class="mt-10 max-w-[56ch] text-lead text-ink dropcap">
+              Your coding agent is already world-class at reading a directory
+              of files, proposing a surgical edit, explaining why, and handing
+              you a reviewable diff. That is exactly how a proposal wants to
+              be written. So we stopped trapping grants in a web UI and
+              started treating them like what they are: writing, held in
+              files, on a filesystem, where your tools live.
+            </p>
           </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Manage responses</h3>
-          <p class="text-secondary-500">
-            Edit and track progress on each response. Word counts, character limits, and completion status built in.
-          </p>
-        </div>
-        <div class="feature-card card p-8 animate-fade-in-up" style="animation-delay: 100ms">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Team collaboration</h3>
-          <p class="text-secondary-500">
-            Everyone on your team can access and edit grants. No more version conflicts or email chains.
-          </p>
         </div>
       </div>
+      <div class="container-page"><hr class="rule" /></div>
     </section>
 
-    <!-- Why GrantKit -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div class="text-center mb-8 sm:mb-12">
-        <span class="badge badge-electric mb-4">Built for AI-native teams</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">Why GrantKit?</h2>
-
-        <p class="text-secondary-500 max-w-2xl mx-auto text-lg">
-          You already use <span class="text-secondary-700 font-medium">Claude Code</span> and <span class="text-secondary-700 font-medium">Cursor</span> for development. GrantKit brings the same workflow to grant writing.
-        </p>
-      </div>
-
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Open source + CLI</h3>
-          <p class="text-secondary-500">
-            Your proposals live in Git. Use Claude Code, Cursor, or any AI tool to craft responses locally. Full control over your data.
-          </p>
-        </div>
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Web + local hybrid</h3>
-          <p class="text-secondary-500">
-            Edit in the web app for quick updates. Use your local editor for deep work. Changes sync automatically via Git.
-          </p>
-        </div>
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Automated validators</h3>
-          <p class="text-secondary-500">
-            NSF compliance checking catches errors before submission, not after.
-          </p>
-          <ul class="mt-3 space-y-1.5 text-sm text-secondary-500">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Page limits per section
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Font and margin compliance
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Required sections present
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Budget arithmetic
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              URL formatting (NSF restrictions)
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-[#00d4ff] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-              Word and character counts
-            </li>
-          </ul>
-        </div>
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Free core</h3>
-          <p class="text-secondary-500">
-            Open source CLI and core features are free. Premium team features and support available for organizations.
-          </p>
-        </div>
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Bring your own AI</h3>
-          <p class="text-secondary-500">
-            Use the AI tools you already pay for. No vendor lock-in to a specific model or provider.
-          </p>
-        </div>
-        <div class="feature-card card p-8 bg-gradient-to-br from-midnight-50/50 to-white">
-          <div class="w-12 h-12 bg-midnight-900 text-[#00d4ff] rounded-xl flex items-center justify-center mb-4 glow-subtle">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
-          </div>
-          <h3 class="text-lg font-bold text-secondary-900 mb-2">Team collaboration</h3>
-          <p class="text-secondary-500">
-            Share grants with your team. Everyone can edit in the web app or locally. Real-time sync keeps everyone aligned.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Competitive Comparison -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div class="text-center mb-8 sm:mb-12">
-        <span class="badge badge-electric mb-4">How we compare</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">The alternatives</h2>
-
-        <p class="text-secondary-500 max-w-2xl mx-auto text-lg">
-          No other tool combines local-first editing, AI integration, and compliance validation.
-        </p>
-      </div>
-
-      <div class="overflow-x-auto">
-        <table class="w-full text-sm">
-          <thead>
-            <tr class="border-b border-midnight-200">
-              <th class="text-left py-4 px-4 font-semibold text-secondary-900">Capability</th>
-              <th class="text-center py-4 px-3 text-secondary-500 font-medium">Research.gov</th>
-              <th class="text-center py-4 px-3 text-secondary-500 font-medium">Grantable</th>
-              <th class="text-center py-4 px-3 text-secondary-500 font-medium">Google Docs</th>
-              <th class="text-center py-4 px-3 font-semibold text-[#00d4ff]">GrantKit</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-midnight-100">
-            <tr>
-              <td class="py-3 px-4 text-secondary-700">Local file editing</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-[#00d4ff]">✓</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4 text-secondary-700">AI tool compatible</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-warning-500">◐</td>
-              <td class="py-3 px-3 text-center text-warning-500">◐</td>
-              <td class="py-3 px-3 text-center text-[#00d4ff]">✓</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4 text-secondary-700">NSF validation</td>
-              <td class="py-3 px-3 text-center text-warning-500">◐</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-[#00d4ff]">✓</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4 text-secondary-700">Version control</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-warning-500">◐</td>
-              <td class="py-3 px-3 text-center text-[#00d4ff]">✓</td>
-            </tr>
-            <tr>
-              <td class="py-3 px-4 text-secondary-700">Open source</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-secondary-400">—</td>
-              <td class="py-3 px-3 text-center text-[#00d4ff]">✓</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Workflow -->
-    <section class="relative bg-midnight-50 py-12 sm:py-20 overflow-hidden">
-      <!-- Subtle grid pattern -->
-      <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
-
-      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="text-center mb-8 sm:mb-12">
-          <span class="badge badge-electric mb-4">4 simple steps</span>
-          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">How it works</h2>
-          <p class="text-secondary-500 max-w-2xl mx-auto text-lg">
-            GrantKit syncs between local files and the cloud. Use AI tools locally, collaborate in the browser.
-          </p>
+    <!-- ================================================================
+         Three reasons to use files
+         ================================================================ -->
+    <section class="relative">
+      <div class="container-page py-20 md:py-28">
+        <div class="chapter-label mb-14">
+          <span class="chapter-num">III.</span>
+          <span>Why files</span>
         </div>
 
-        <!-- Workflow Steps -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-8 sm:mb-12">
-          <div class="feature-card card p-4 sm:p-6 text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-            </div>
-            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 1</div>
-            <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Pull</h3>
-            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Download grants to local markdown files</p>
-          </div>
-          <div class="feature-card card p-4 sm:p-6 text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
-            </div>
-            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 2</div>
-            <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Edit</h3>
-            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Use Claude Code, Cursor, or any AI tool</p>
-          </div>
-          <div class="feature-card card p-4 sm:p-6 text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-            </div>
-            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 3</div>
-            <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Validate</h3>
-            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Check NSF compliance automatically</p>
-          </div>
-          <div class="feature-card card p-4 sm:p-6 text-center">
-            <div class="w-10 h-10 sm:w-12 sm:h-12 bg-midnight-900 text-[#00d4ff] rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 glow-subtle">
-              <svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-            </div>
-            <div class="text-xs font-bold text-[#00d4ff] uppercase tracking-wider mb-1 sm:mb-2">Step 4</div>
-            <h3 class="font-bold text-secondary-900 mb-1 sm:mb-2 text-sm sm:text-base">Push</h3>
-            <p class="text-xs sm:text-sm text-secondary-500 hidden sm:block">Sync changes back to the cloud</p>
-          </div>
-        </div>
-
-        <!-- Code Examples -->
-        <div class="terminal glow">
-          <div class="terminal-header">
-            <div class="terminal-dot bg-danger-500"></div>
-            <div class="terminal-dot bg-warning-500"></div>
-            <div class="terminal-dot bg-success-500"></div>
-            <span class="ml-4 text-midnight-400 text-sm font-mono">Terminal</span>
-          </div>
-          <div class="terminal-body space-y-3 sm:space-y-4 overflow-x-auto">
-            <div>
-              <span class="text-midnight-400"># Install GrantKit CLI</span>
-              <div class="text-[#00d4ff]">$ pip install grantkit</div>
-            </div>
-            <div>
-              <span class="text-midnight-400"># Pull grants from the cloud</span>
-              <div class="text-[#00d4ff]">$ grantkit sync pull</div>
-              <div class="text-success-500 ml-2">✅ Pulled 10 grants, 94 responses</div>
-            </div>
-            <div>
-              <span class="text-midnight-400"># Edit with your favorite AI tool</span>
-              <div class="text-[#00d4ff]">$ claude "improve the broader impacts section"</div>
-            </div>
-            <div>
-              <span class="text-midnight-400"># Validate NSF compliance</span>
-              <div class="text-[#00d4ff]">$ grantkit validate</div>
-              <div class="text-success-500 ml-2">✅ All checks passed</div>
-            </div>
-            <div>
-              <span class="text-midnight-400"># Push changes back</span>
-              <div class="text-[#00d4ff]">$ grantkit sync push</div>
-              <div class="text-success-500 ml-2">✅ Synced 3 responses to cloud</div>
-            </div>
-            <div>
-              <span class="text-midnight-400"># Or watch for changes and auto-sync</span>
-              <div class="text-[#00d4ff]">$ grantkit sync watch</div>
-              <div class="text-midnight-300 ml-2">👀 Watching for changes...</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- File Structure -->
-        <div class="mt-12 grid md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-14">
+          <!-- Column 1 -->
           <div>
-            <h3 class="font-bold text-secondary-900 mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Local file structure
-            </h3>
-            <div class="card p-6 font-mono text-sm">
-              <div class="text-secondary-500">
-                <div class="text-secondary-700">my-grants/</div>
-                <div class="ml-4">├── <span class="text-[#00d4ff]">nsf-cssi/</span></div>
-                <div class="ml-8">├── grant.yaml</div>
-                <div class="ml-8">└── responses/</div>
-                <div class="ml-12">├── abstract.md</div>
-                <div class="ml-12">├── broader_impacts.md</div>
-                <div class="ml-12">└── technical_approach.md</div>
-                <div class="ml-4">├── <span class="text-[#00d4ff]">arnold-labor/</span></div>
-                <div class="ml-4">└── ...</div>
+            <p class="eyebrow mb-3">i. Context</p>
+            <h3 class="mb-4">The agent reads everything, not a snippet.</h3>
+            <p class="text-muted leading-[1.65]">
+              A web form hands the model a 2,000-token excerpt. A filesystem
+              hands it the budget, last year's proposal, the solicitation, the
+              reviewer's letter, and every response you've drafted — and lets
+              it decide what to pull in.
+            </p>
+          </div>
+          <!-- Column 2 -->
+          <div>
+            <p class="eyebrow mb-3">ii. Provenance</p>
+            <h3 class="mb-4">Every edit is a reviewable diff.</h3>
+            <p class="text-muted leading-[1.65]">
+              Git remembers. An "undo" button forgets. When your broader
+              impacts section drifts over three weeks of revisions, you want a
+              line-level history you can bisect and blame, not a modal that
+              asks if you're sure.
+            </p>
+          </div>
+          <!-- Column 3 -->
+          <div>
+            <p class="eyebrow mb-3">iii. Portability</p>
+            <h3 class="mb-4">The model is yours to choose.</h3>
+            <p class="text-muted leading-[1.65]">
+              Claude today, a local model tomorrow, a new frontier system
+              next quarter. A grant stored as markdown outlives every LLM
+              vendor and every SaaS company in the category.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="container-page"><hr class="rule-double" /></div>
+    </section>
+
+    <!-- ================================================================
+         How it works — a single orchestrated terminal
+         ================================================================ -->
+    <section id="how" class="relative">
+      <div class="container-page py-20 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div class="lg:col-span-4">
+            <div class="chapter-label mb-4">
+              <span class="chapter-num">IV.</span>
+              <span>How it works</span>
+            </div>
+            <h2 class="mb-6">Pull. Edit with your agent. Push — with confidence.</h2>
+            <p class="text-muted leading-[1.65] max-w-[38ch]">
+              GrantKit's CLI tracks a per-machine baseline of the cloud.
+              Pushes detect when a teammate moved on since your last pull and
+              refuse to overwrite their work. Pulls never clobber local
+              edits. The same motions you use for code, for writing.
+            </p>
+            <div class="mt-10 space-y-5 text-sm">
+              <div class="flex items-baseline gap-4">
+                <span class="font-mono text-muted w-6">I.</span>
+                <span><strong class="text-ink">Pull.</strong> Grants land in <code class="font-mono">~/grants/</code> as markdown.</span>
+              </div>
+              <div class="flex items-baseline gap-4">
+                <span class="font-mono text-muted w-6">II.</span>
+                <span><strong class="text-ink">Edit.</strong> Open Claude Code, Cursor, Codex — any agent with file access.</span>
+              </div>
+              <div class="flex items-baseline gap-4">
+                <span class="font-mono text-muted w-6">III.</span>
+                <span><strong class="text-ink">Validate.</strong> NSF PAPPG checks run locally, offline.</span>
+              </div>
+              <div class="flex items-baseline gap-4">
+                <span class="font-mono text-muted w-6">IV.</span>
+                <span><strong class="text-ink">Push.</strong> Conflicts block; your teammates keep their work.</span>
               </div>
             </div>
           </div>
-          <div>
-            <h3 class="font-bold text-secondary-900 mb-4 flex items-center gap-2">
-              <svg class="w-5 h-5 text-[#00d4ff]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-              Response format (Markdown + YAML)
-            </h3>
-            <div class="card p-6 font-mono text-sm">
-              <div class="text-secondary-400">---</div>
-              <div><span class="text-[#00d4ff]">title:</span> <span class="text-secondary-600">Broader Impacts</span></div>
-              <div><span class="text-[#00d4ff]">key:</span> <span class="text-secondary-600">broader_impacts</span></div>
-              <div><span class="text-[#00d4ff]">word_limit:</span> <span class="text-secondary-600">2500</span></div>
-              <div><span class="text-[#00d4ff]">status:</span> <span class="text-secondary-600">draft</span></div>
-              <div class="text-secondary-400">---</div>
-              <div class="mt-2 text-secondary-700"># Broader Impacts</div>
-              <div class="text-secondary-500 mt-1">PolicyEngine democratizes...</div>
+
+          <div class="lg:col-span-8">
+            <div class="terminal">
+              <div class="terminal-chrome">
+                <span class="tok-dim">~/grants — grantkit sync</span>
+              </div>
+              <pre class="terminal-body"><span class="tok-prompt">$</span> <span class="tok-cmd">grantkit sync status</span>
+
+<span class="tok-dim">                 Sync plan                 </span>
+<span class="tok-dim">──────────────────────────────────────────</span>
+ local      modified locally   nsf-cssi/responses/broader_impacts.md
+ local      modified locally   nsf-cssi/responses/project_summary.md
+ cloud      modified on cloud  arnold-labor/responses/team.md
+<span class="tok-dim">──────────────────────────────────────────</span>
+modified locally: 2, modified on cloud: 1
+
+<span class="tok-prompt">$</span> <span class="tok-cmd">grantkit sync pull</span>
+<span class="tok-ok">✓</span> Kept <span class="tok-flag">nsf-cssi/responses/broader_impacts.md</span> <span class="tok-dim">(local changes)</span>
+<span class="tok-ok">✓</span> Kept <span class="tok-flag">nsf-cssi/responses/project_summary.md</span> <span class="tok-dim">(local changes)</span>
+<span class="tok-ok">✓</span> Pulled arnold-labor/responses/team.md
+
+<span class="tok-prompt">$</span> <span class="tok-cmd">claude</span> <span class="tok-str">"Tighten the broader impacts section to 2500 words and add a specific undergraduate outreach plan."</span>
+<span class="tok-dim">...editing responses/broader_impacts.md...</span>
+<span class="tok-ok">✓</span> 2,498 words. Draft updated.
+
+<span class="tok-prompt">$</span> <span class="tok-cmd">grantkit sync push</span>
+<span class="tok-ok">✓</span> Push complete<span class="cursor"></span></pre>
             </div>
-          </div>
-        </div>
-
-        <div class="text-center mt-12">
-          <a
-            href="https://github.com/GrantKit/grantkit"
-            target="_blank"
-            rel="noreferrer"
-            class="btn btn-primary text-lg px-8 py-4"
-          >
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-            View CLI on GitHub
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="relative bg-midnight-900 py-10 sm:py-16 overflow-hidden">
-      <!-- Decorative gradient orbs -->
-      <div class="absolute top-0 left-1/4 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-48 h-48 bg-[#00d4ff]/5 rounded-full blur-2xl"></div>
-
-      <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 text-center">
-          <div class="group">
-            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">$4.9M</div>
-            <div class="text-xs sm:text-base text-midnight-400">Total Requested</div>
-          </div>
-          <div class="group">
-            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">10</div>
-            <div class="text-xs sm:text-base text-midnight-400">Active Grants</div>
-          </div>
-          <div class="group">
-            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">94</div>
-            <div class="text-xs sm:text-base text-midnight-400">Response Sections</div>
-          </div>
-          <div class="group">
-            <div class="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-1 sm:mb-2 group-hover:text-[#00d4ff] transition-colors">8</div>
-            <div class="text-xs sm:text-base text-midnight-400">Foundations</div>
+            <p class="mt-4 footnote text-right">
+              Not a screenshot. Run the commands yourself with
+              <code class="font-mono">pip install grantkit</code>.
+            </p>
           </div>
         </div>
       </div>
+      <div class="container-page"><hr class="rule" /></div>
     </section>
 
-    <!-- FAQ -->
-    <section class="relative max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
-      <div class="text-center mb-8 sm:mb-12">
-        <span class="badge badge-electric mb-4">Common questions</span>
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-secondary-900 mb-4">Frequently asked questions</h2>
-      </div>
-
-      <div class="space-y-4" id="faq">
-        <details class="card group">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-medium text-secondary-900 select-none list-none [&::-webkit-details-marker]:hidden">
-            <span>How does this work with research.gov?</span>
-            <svg class="w-5 h-5 text-secondary-400 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 text-secondary-500 -mt-2">
-            You write locally with AI agents, then submit via research.gov as usual. GrantKit handles formatting and compliance so you catch errors before uploading.
-          </div>
-        </details>
-
-        <details class="card group">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-medium text-secondary-900 select-none list-none [&::-webkit-details-marker]:hidden">
-            <span>What happens to my data?</span>
-            <svg class="w-5 h-5 text-secondary-400 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 text-secondary-500 -mt-2">
-            Grants sync between your local files and encrypted Supabase cloud storage. You always have a local copy. The CLI and core are open source so you can audit exactly what gets sent.
-          </div>
-        </details>
-
-        <details class="card group">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-medium text-secondary-900 select-none list-none [&::-webkit-details-marker]:hidden">
-            <span>Can I use this offline?</span>
-            <svg class="w-5 h-5 text-secondary-400 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 text-secondary-500 -mt-2">
-            Yes. The CLI and local files work fully offline. Edit with any AI tool, run validation locally, and sync when you're back online.
-          </div>
-        </details>
-
-        <details class="card group">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-medium text-secondary-900 select-none list-none [&::-webkit-details-marker]:hidden">
-            <span>What AI tools does this work with?</span>
-            <svg class="w-5 h-5 text-secondary-400 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 text-secondary-500 -mt-2">
-            Any tool that can edit files: Claude Code, Cursor, Windsurf, GitHub Copilot, Gemini CLI, and more. Your proposals are plain markdown, so any editor or AI agent works.
-          </div>
-        </details>
-
-        <details class="card group">
-          <summary class="flex items-center justify-between cursor-pointer p-6 font-medium text-secondary-900 select-none list-none [&::-webkit-details-marker]:hidden">
-            <span>Is this only for NSF grants?</span>
-            <svg class="w-5 h-5 text-secondary-400 transition-transform duration-200 group-open:rotate-180 shrink-0 ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-          </summary>
-          <div class="px-6 pb-6 text-secondary-500 -mt-2">
-            NSF has the deepest validation support, but GrantKit works with any funder. The sync workflow, file structure, and AI integration are funder-agnostic. We're adding more validators over time.
-          </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="relative max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
-      <div class="relative card p-8 sm:p-12 md:p-16 text-center overflow-hidden">
-        <!-- Background gradient -->
-        <div class="absolute inset-0 bg-gradient-to-br from-midnight-900 to-midnight-800 -z-10"></div>
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[#00d4ff]/10 rounded-full blur-3xl -z-10"></div>
-
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
-          Let your AI agent write your <span class="gradient-text">next grant</span>
-        </h2>
-        <p class="text-midnight-300 mb-8 text-lg max-w-xl mx-auto">
-          Sign in to start using GrantKit. Pull your first grant in under a minute.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="https://app.grantkit.io"
-            class="btn btn-electric text-lg px-8 py-4 glow"
-          >
-            <svg class="w-5 h-5" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
-              <path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
-              <path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
-              <path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
-            </svg>
-            Sign in with Google
-          </a>
-          <a
-            href="https://github.com/GrantKit/grantkit"
-            target="_blank"
-            rel="noreferrer"
-            class="text-midnight-400 hover:text-white text-sm font-medium transition-colors flex items-center gap-1.5"
-          >
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-            View on GitHub
-          </a>
+    <!-- ================================================================
+         What's inside — the feature ledger
+         ================================================================ -->
+    <section class="relative">
+      <div class="container-page py-20 md:py-28">
+        <div class="chapter-label mb-14">
+          <span class="chapter-num">V.</span>
+          <span>What's inside</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-14 gap-y-12">
+          <article>
+            <p class="eyebrow mb-2">Sync</p>
+            <h4 class="mb-3">Bidirectional with conflict detection.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              Per-entity baselines via <code class="font-mono">.grantkit/state.json</code>. Push
+              blocks on cloud drift; <code class="font-mono">--force</code> when you mean it.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow mb-2">NSF validation</p>
+            <h4 class="mb-3">Eighty-plus PAPPG checks, locally.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              Page limits, font, margins, URL restrictions, required sections,
+              citation completeness. Offline. Before submission, not after.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow mb-2">Budget</p>
+            <h4 class="mb-3">BLS OEWS salary checks and GSA per-diem.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              Catch a $350k postdoc before a program officer does.
+              Automatic per-diem lookups by city and fiscal year.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow mb-2">Bibliography</p>
+            <h4 class="mb-3">BibTeX in, rendered citations out.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              One <code class="font-mono">references.bib</code>. <code class="font-mono">[@key]</code> inline. Auto-regen is
+              opt-in and respects your manual edits.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow mb-2">Collaboration</p>
+            <h4 class="mb-3">Share a grant by link or by role.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              Public view links for program officers. Editor / viewer roles
+              for collaborators via Supabase row-level security.
+            </p>
+          </article>
+          <article>
+            <p class="eyebrow mb-2">Open source</p>
+            <h4 class="mb-3">MIT-licensed. Fork it, shape it to your lab.</h4>
+            <p class="text-muted text-[0.95rem] leading-[1.65]">
+              The CLI, the validators, the plugin, the web app. Source at
+              <a class="link" href="https://github.com/GrantKit">github.com/GrantKit</a>.
+            </p>
+          </article>
         </div>
       </div>
+      <div class="container-page"><hr class="rule-double" /></div>
     </section>
 
-    <!-- Footer -->
-    <footer class="border-t border-midnight-100 py-8 sm:py-12 bg-midnight-50/50" role="contentinfo">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6">
-        <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div class="flex items-center gap-3">
-            <div class="relative">
-              <img src="/logo.svg" alt="GrantKit" class="h-10 w-auto" />
-              <div class="absolute -inset-1 bg-[#00d4ff]/10 rounded-xl blur-md -z-10"></div>
+    <!-- ================================================================
+         Call to action
+         ================================================================ -->
+    <section class="relative">
+      <div class="container-page py-20 md:py-28">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div class="lg:col-span-7 lg:col-start-3 text-center">
+            <h2 class="mb-6">
+              Write the next grant the <span class="display-italic text-accent">way you write code</span>.
+            </h2>
+            <p class="text-muted text-lead max-w-[44ch] mx-auto mb-10">
+              Two commands and a coding agent. Nothing to migrate, no new
+              editor to learn, no lock-in. Just files.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-6">
+              <a href="https://app.grantkit.io" class="btn btn-primary">Open the app</a>
+              <a href="https://docs.grantkit.io" class="btn-ghost link">Read the docs</a>
             </div>
-            <div>
-              <span class="font-bold text-secondary-900 text-lg">GrantKit</span>
-              <p class="text-xs text-secondary-400">AI-native grant writing</p>
-            </div>
+            <p class="mt-10 marginnote">
+              <code class="font-mono">pip install grantkit &amp;&amp; grantkit auth login</code>
+            </p>
           </div>
-          <div class="flex items-center gap-6 text-sm">
-            <a href="/plugin" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium">Plugin</a>
-            <a href="/thesis" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium flex items-center gap-1">
-              Read our thesis
-              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </a>
-            <a href="https://docs.grantkit.io" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium">Docs</a>
-            <a href="https://github.com/GrantKit" class="text-secondary-500 hover:text-[#00d4ff] transition-colors font-medium flex items-center gap-1.5">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-              GitHub
-            </a>
-          </div>
-        </div>
-        <div class="mt-8 pt-6 border-t border-midnight-100 text-center text-xs text-secondary-400">
-          Built with care by the PolicyEngine team
         </div>
       </div>
-    </footer>
-  </body>
-</html>
+    </section>
+</Base>

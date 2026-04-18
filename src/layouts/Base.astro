@@ -1,0 +1,100 @@
+---
+import "../styles/global.css";
+
+const {
+  title = "GrantKit",
+  description = "Grant writing for the AI agent era.",
+  eyebrow,
+} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body class="min-h-screen bg-paper text-ink">
+    <header class="relative z-40">
+      <div class="container-page">
+        <div
+          class="flex items-baseline justify-between py-6 md:py-8 border-b border-rule"
+        >
+          <a href="/" class="flex items-baseline gap-3">
+            <span class="display text-2xl md:text-[1.75rem] leading-none">GrantKit</span>
+            {eyebrow && <span class="hidden md:inline marginnote">{eyebrow}</span>}
+          </a>
+          <nav class="flex items-center gap-7 text-sm">
+            <a href="/thesis" class="link hidden sm:inline">Thesis</a>
+            <a href="/plugin" class="link hidden sm:inline">Plugin</a>
+            <a href="https://docs.grantkit.io" class="link hidden sm:inline">Docs</a>
+            <a href="https://github.com/GrantKit/grantkit" class="link hidden sm:inline">Source</a>
+            <a href="https://app.grantkit.io" class="btn btn-primary">Sign in</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="relative">
+      <div class="container-page pt-16 pb-14">
+        <hr class="rule-double mb-10" />
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+          <div class="md:col-span-2">
+            <p class="display text-2xl">GrantKit</p>
+            <p class="marginnote mt-2">Grant writing for the AI agent era.</p>
+            <p class="mt-6 footnote max-w-[36ch]">
+              Built by <a href="https://policyengine.org" class="link">PolicyEngine</a>.
+              MIT licensed. The CLI, the validators, the plugin, the web app —
+              all open source.
+            </p>
+          </div>
+          <div>
+            <p class="eyebrow mb-3">Product</p>
+            <ul class="space-y-2 text-sm">
+              <li><a class="link" href="https://app.grantkit.io">Web app</a></li>
+              <li><a class="link" href="https://docs.grantkit.io">Documentation</a></li>
+              <li><a class="link" href="/plugin">Claude Code plugin</a></li>
+              <li><a class="link" href="/thesis">Thesis</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="eyebrow mb-3">Source</p>
+            <ul class="space-y-2 text-sm">
+              <li><a class="link" href="https://github.com/GrantKit/grantkit">CLI</a></li>
+              <li><a class="link" href="https://github.com/GrantKit/app">Web app</a></li>
+              <li>
+                <a class="link" href="https://github.com/GrantKit/claude-code-plugin"
+                  >Plugin</a
+                >
+              </li>
+              <li>
+                <a class="link" href="https://github.com/GrantKit/grantkit/issues">Issues</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="rule mt-14 mb-6" />
+
+        <div
+          class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 footnote"
+        >
+          <p>
+            Set in <em>Instrument Serif</em>, <em>IBM Plex Sans</em>, and
+            <em>IBM Plex Mono</em>. © 2026 GrantKit contributors.
+          </p>
+          <p class="font-mono tracking-[0.08em]">MADE FOR WRITERS WHO SHIP.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
